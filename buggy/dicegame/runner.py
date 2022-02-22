@@ -15,6 +15,7 @@ class GameRunner:
     def answer(self):
         total = 0
         for die in self.dice:
+            #Bugfix using the value of the die
             total += die.value
         return total
 
@@ -23,8 +24,11 @@ class GameRunner:
         # Probably counts wins or something.
         # Great variable name, 10/10.
         c = 0
-        while True:
-            runner = cls()
+        
+        #Bug fix moving this out of the loop
+        runner = cls()
+        
+        while True:  
 
             print("Round {}\n".format(runner.round))
 
@@ -43,7 +47,7 @@ class GameRunner:
                 print("The answer is: {}".format(runner.answer()))
                 print("Like seriously, how could you mess that up")
                 runner.loses += 1
-                c = 0
+                c += 1
             print("Wins: {} Loses {}".format(runner.wins, runner.loses))
             runner.round += 1
 
